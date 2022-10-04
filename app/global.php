@@ -17,10 +17,8 @@ function showFlash()
     unset($_SESSION['flash']);
 
     return "
-		<div class='alert alert-$type'>
-			<strong>$type</strong>
-			<br>
-			$message
+		<div class='alert alert-{$type}'>
+			<strong>{$message}</strong>
 		</div>
 		";
   }
@@ -36,6 +34,7 @@ function redirect($location, $queryStr = [])
     };
   }
   header("location: {$location}");
+  die;
 }
 
 /** terminate page and show error text */
