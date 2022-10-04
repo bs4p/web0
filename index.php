@@ -1,6 +1,7 @@
 <?php
 session_start();
 require_once './app/global.php';
+
 ?>
 <?php require_once './app/template/header.php'; ?>
 <div class="container">
@@ -12,7 +13,8 @@ require_once './app/global.php';
             <div class="text-center">
               <h1 class="h4 text-gray-900 mb-4">Login</h1>
             </div>
-            <form class="user" method="post" action="loginApi.php">
+            <form class="user" method="post" action="app/api/loginApi.php">
+              <?= showFlash(); ?>
               <div class="form-group">
                 <input type="email" class="form-control form-control-user" id="email" placeholder="Email Address" name="_email" />
               </div>
