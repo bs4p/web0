@@ -1,4 +1,4 @@
-<?php require_once './app/template/header.php'; ?>
+<?php require_once 'app/template/header.php'; ?>
 <!-- Page Wrapper -->
 <div id="wrapper">
 
@@ -318,4 +318,4 @@
     </div>
   </div>
 </div>
-<?php require_once './app/template/footer.php'; ?>
+<?php require_once 'app/template/footer.php'; ?>
