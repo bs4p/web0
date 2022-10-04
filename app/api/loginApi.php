@@ -12,6 +12,11 @@ $db = new Database();
 $email = htmlspecialchars(strtolower($_POST["_email"]));
 $password = $_POST["_password"];
 
+if (empty($email) || empty($password)) {
+  createFlash("danger", "all input must be filled and can't be empty");
+  redirect("/");
+}
+
 $dataByEmail = $db->query("SELECT * FROM users WHERE email = " . $db->quote($email))->fetch();
 if (!$dataByEmail) {
   createFlash("danger", "Email is not registered");

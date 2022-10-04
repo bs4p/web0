@@ -1,7 +1,6 @@
 <?php
 session_start();
 require_once './app/global.php';
-
 ?>
 <?php require_once './app/template/header.php'; ?>
 <div class="container">
@@ -27,7 +26,9 @@ require_once './app/global.php';
                   <label class="custom-control-label" for="remember">Remember Me</label>
                 </div>
               </div>
-              <button type="submit" class="btn btn-primary btn-user btn-block" name="__login">Login</button>
+              <button type="submit" class="btn btn-primary btn-user btn-block" name="__login">
+                Login
+              </button>
             </form>
             <hr />
             <div class="text-center">
