@@ -89,4 +89,9 @@ class Database
   {
     return $this->stmt->rowCount();
   }
+
+  public function quote(string $string): string|false
+  {
+    return $this->dbh->quote($string);
+  }
 }

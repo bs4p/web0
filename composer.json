@@ -1,5 +1,5 @@
 {
-    "require": {
-        "fakerphp/faker": "^1.20"
-    }
+  "require": {
+    "fakerphp/faker": "^1.20"
+  }
 }

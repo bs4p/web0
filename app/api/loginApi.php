@@ -1,23 +1,23 @@
 <?php
 session_start();
-require_once 'app/bootstrap.php';
+require_once './app/Database.php';
 
-if (!isset($_POST['_csrf'])) {
-  http_response_code(404);
-  die("<h1 style='color:red'>404 Not Found ({$_SERVER['REQUEST_URI']})</h1>");
+if (!isset($_POST['__login'])) {
+  pageError(404);
 }
-$pdo = pdo();
+
+$db = new Database();
 $email = htmlspecialchars(strtolower($_POST["_email"]));
 $password = $_POST["_password"];
 
-$checkEmailRegistered = $pdo->query("SELECT email FROM users WHERE email = " . $pdo->quote($email));
-$checkEmailResult = $checkEmailRegistered->fetch(PDO::FETCH_NUM);
+$checkEmailRegistered = $db->query("SELECT email FROM users WHERE email = " . $db->quote($email));
+$checkEmailResult = $checkEmailRegistered->fetch();
 if (!$checkEmailResult) {
-  redirect("/", "email is not registered");
-  die;
+  createFlash('danger', 'email is not registered');
+  redirect("/", "");
 }
 
-$checkPassword = $pdo->query("SELECT password FROM users WHERE email = " . $pdo->quote($checkEmailResult[0]));
+$checkPassword = $db->query("SELECT password FROM users WHERE email = " . $db->quote($checkEmailResult));
 $checkPasswordResult = $checkPassword->fetch(PDO::FETCH_NUM);
 if (!password_verify($password,  $checkPasswordResult[0])) {
   redirect("/", "incorrect password");

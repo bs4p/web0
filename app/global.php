@@ -27,18 +27,27 @@ function showFlash()
 }
 
 /** redirect */
-function redirect($view, $queryStr = [])
+function redirect($location, $queryStr = [])
 {
-  $location = "/?v=${view}";
   if (!empty($queryStr)) {
     foreach ($queryStr as $key => $value) {
-      $location .= "&{$key}=${value}";
+      $location .= !str_contains($location, '?') ? '?' : '&';
+      $location .= "{$key}=${value}";
     };
   }
   header("location: {$location}");
 }
 
-/** resources */
-function resources()
+/** terminate page and show error text */
+function pageError(int $code)
 {
+  $text = '';
+  switch ($code) {
+    case 404:
+      http_response_code(404);
+      $text = "<h1 style='color:red'>404 Not Found</h1>";
+      break;
+  }
+
+  die($text);
 }

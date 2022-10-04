@@ -1,13 +1,12 @@
 <?php
 session_start();
-require_once 'app/bootstrap.php';
+require_once 'app/global.php';
 
-if (!isset($_POST["_csrf"])) {
-  http_response_code(404);
-  die("<h1 style='color:red'>404 Not Found ($_SERVER[REQUEST_URI])</h1>");
+if (!isset($_POST['__login'])) {
+  pageError(404);
 }
-$pdo = pdo();
 
+$db = new Database();
 $name = htmlspecialchars(strtolower($_POST["_name"]));
 $email = htmlspecialchars(strtolower($_POST["_email"]));
 $password = $_POST["_password"];

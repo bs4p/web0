@@ -1,3 +1,7 @@
+<?php
+session_start();
+require_once './app/global.php';
+?>
 <?php require_once './app/template/header.php'; ?>
 <div class="container">
   <div class="row justify-content-center">
@@ -8,7 +12,7 @@
             <div class="text-center">
               <h1 class="h4 text-gray-900 mb-4">Login</h1>
             </div>
-            <form class="user" method="post" action="api_login.php">
+            <form class="user" method="post" action="loginApi.php">
               <div class="form-group">
                 <input type="email" class="form-control form-control-user" id="email" placeholder="Email Address" name="_email" />
               </div>
@@ -21,7 +25,7 @@
                   <label class="custom-control-label" for="remember">Remember Me</label>
                 </div>
               </div>
-              <button type="submit" class="btn btn-primary btn-user btn-block">Login</button>
+              <button type="submit" class="btn btn-primary btn-user btn-block" name="__login">Login</button>
             </form>
             <hr />
             <div class="text-center">
