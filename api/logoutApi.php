@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once '../global.php';
+require_once '../app/global.php';
 
 session_destroy();
 session_unset();

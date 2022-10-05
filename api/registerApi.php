@@ -1,7 +1,7 @@
 <?php
 session_start();
-require_once "../global.php";
-require_once "../Database.php";
+require_once '../app/global.php';
+require_once '../app/Database.php';
 
 if (!isset($_POST['__register'])) {
   pageError(404);

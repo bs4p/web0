@@ -33,7 +33,7 @@ if (isset($_SESSION["login"])) {
             <div class="text-center">
               <h1 class="h4 text-gray-900 mb-4">Login</h1>
             </div>
-            <form class="user" method="post" action="app/api/loginApi.php">
+            <form class="user" method="post" action="api/loginApi.php">
               <?= showFlash(); ?>
               <div class="form-group">
                 <input type="email" class="form-control form-control-user" id="email" placeholder="Email Address" name="_email" />
