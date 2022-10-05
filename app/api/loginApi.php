@@ -17,23 +17,26 @@ if (empty($email) || empty($password)) {
   redirect("/");
 }
 
-$dataByEmail = $db->query("SELECT * FROM users WHERE email = " . $db->quote($email))->fetch();
-if (!$dataByEmail) {
+$data = $db->query("SELECT * FROM users WHERE email = " . $db->quote($email))->fetch();
+if (!$data) {
   createFlash("danger", "Email is not registered");
   redirect("/");
 }
 
-if (!password_verify($password,  $dataByEmail["password"])) {
+if (!password_verify($password,  $data["password"])) {
   createFlash("danger", "Incorrect password");
   redirect("/");
 }
 
 if (isset($_POST["_remember"])) {
-  setcookie("key", sha1($dataByEmail["name"]), time() + 300);
+  setcookie("id", "$data[id]", time() + 300, "/");
+  setcookie("key", sha1($data["name"]), time() + 300, "/");
 }
 
 $_SESSION["login"] = [
-  "email" => $email,
-  "name" => $dataByEmail["name"],
+  "id" => $data["id"],
+  "name" => $data["name"],
+  "email" => $data["email"],
 ];
+
 redirect("/home.php");

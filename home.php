@@ -1,3 +1,13 @@
+<?php
+session_start();
+require_once 'app/global.php';
+
+if (!isset($_SESSION["login"])) {
+  redirect("/");
+}
+["id" => $sessId, "name" => $sessName, "email" => $sessEmail] = $_SESSION["login"];
+?>
+
 <?php require_once 'app/template/header.php'; ?>
 <!-- Page Wrapper -->
 <div id="wrapper">
@@ -271,7 +281,9 @@
       <div class="container-fluid">
 
         <!-- Page Heading -->
-        <h1 class="h3 mb-4 text-gray-800">Blank Page</h1>
+        <h1 class="h3 mb-4 text-gray-800">
+          Hello, <?= $sessName; ?> !
+        </h1>
 
       </div>
       <!-- /.container-fluid -->

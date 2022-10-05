@@ -1,6 +1,27 @@
 <?php
 session_start();
 require_once 'app/global.php';
+require_once 'app/Database.php';
+
+$db = new Database();
+if (isset($_COOKIE["id"]) && isset($_COOKIE["key"])) {
+  $id = $_COOKIE["id"];
+  $key = $_COOKIE["key"];
+
+  $data = $db->query("SELECT * FROM users WHERE id = {$id}")->fetch();
+
+  if ($key === sha1($data["name"])) {
+    $_SESSION["login"] = [
+      "id" => $data["id"],
+      "name" => $data["name"],
+      "email" => $data["email"]
+    ];
+  }
+}
+
+if (isset($_SESSION["login"])) {
+  redirect("/home.php");
+}
 ?>
 <?php require_once 'app/template/header.php'; ?>
 <div class="container">
