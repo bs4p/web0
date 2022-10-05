@@ -1,7 +1,9 @@
-<?php
+<?php $title = 'Home';
 session_start();
 require_once 'app/global.php';
 ?>
+
+<?php $title = 'Register'; ?>
 <?php require_once 'app/template/header.php'; ?>
 <div class="container">
   <div class="row justify-content-center">

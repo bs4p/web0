@@ -23,6 +23,8 @@ if (isset($_SESSION["login"])) {
   redirect("/home.php");
 }
 ?>
+
+<?php $title = 'Login'; ?>
 <?php require_once 'app/template/header.php'; ?>
 <div class="container">
   <div class="row justify-content-center">

@@ -8,6 +8,7 @@ if (!isset($_SESSION["login"])) {
 ["id" => $sessId, "name" => $sessName, "email" => $sessEmail] = $_SESSION["login"];
 ?>
 
+<?php $title = 'Home'; ?>
 <?php require_once 'app/template/header.php'; ?>
 <!-- Page Wrapper -->
 <div id="wrapper">
@@ -16,7 +17,7 @@ if (!isset($_SESSION["login"])) {
   <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
     <!-- Sidebar - Brand -->
-    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/">
       <div class="sidebar-brand-icon rotate-n-15">
         <i class="fas fa-laugh-wink"></i>
       </div>
@@ -28,7 +29,7 @@ if (!isset($_SESSION["login"])) {
 
     <!-- Nav Item - Dashboard -->
     <li class="nav-item">
-      <a class="nav-link" href="index.html">
+      <a class="nav-link" href="#">
         <i class="fas fa-fw fa-tachometer-alt"></i>
         <span>Dashboard</span></a>
     </li>
@@ -45,30 +46,13 @@ if (!isset($_SESSION["login"])) {
     <li class="nav-item">
       <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
         <i class="fas fa-fw fa-cog"></i>
-        <span>Components</span>
+        <span>Menu 1</span>
       </a>
       <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
-          <h6 class="collapse-header">Custom Components:</h6>
-          <a class="collapse-item" href="buttons.html">Buttons</a>
-          <a class="collapse-item" href="cards.html">Cards</a>
-        </div>
-      </div>
-    </li>
-
-    <!-- Nav Item - Utilities Collapse Menu -->
-    <li class="nav-item">
-      <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
-        <i class="fas fa-fw fa-wrench"></i>
-        <span>Utilities</span>
-      </a>
-      <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
-        <div class="bg-white py-2 collapse-inner rounded">
-          <h6 class="collapse-header">Custom Utilities:</h6>
-          <a class="collapse-item" href="utilities-color.html">Colors</a>
-          <a class="collapse-item" href="utilities-border.html">Borders</a>
-          <a class="collapse-item" href="utilities-animation.html">Animations</a>
-          <a class="collapse-item" href="utilities-other.html">Other</a>
+          <h6 class="collapse-header">Custom Menu 1:</h6>
+          <a class="collapse-item" href="#">Item 1</a>
+          <a class="collapse-item" href="#">Item 2</a>
         </div>
       </div>
     </li>
@@ -196,7 +180,7 @@ if (!isset($_SESSION["login"])) {
               </h6>
               <a class="dropdown-item d-flex align-items-center" href="#">
                 <div class="dropdown-list-image mr-3">
-                  <img class="rounded-circle" src="img/undraw_profile_1.svg" alt="...">
+                  <img class="rounded-circle" src="resources/img/undraw_profile_1.svg" alt="...">
                   <div class="status-indicator bg-success"></div>
                 </div>
                 <div class="font-weight-bold">
@@ -207,7 +191,7 @@ if (!isset($_SESSION["login"])) {
               </a>
               <a class="dropdown-item d-flex align-items-center" href="#">
                 <div class="dropdown-list-image mr-3">
-                  <img class="rounded-circle" src="img/undraw_profile_2.svg" alt="...">
+                  <img class="rounded-circle" src="resources/img/undraw_profile_2.svg" alt="...">
                   <div class="status-indicator"></div>
                 </div>
                 <div>
@@ -218,7 +202,7 @@ if (!isset($_SESSION["login"])) {
               </a>
               <a class="dropdown-item d-flex align-items-center" href="#">
                 <div class="dropdown-list-image mr-3">
-                  <img class="rounded-circle" src="img/undraw_profile_3.svg" alt="...">
+                  <img class="rounded-circle" src="resources/img/undraw_profile_3.svg" alt="...">
                   <div class="status-indicator bg-warning"></div>
                 </div>
                 <div>
@@ -247,8 +231,10 @@ if (!isset($_SESSION["login"])) {
           <!-- Nav Item - User Information -->
           <li class="nav-item dropdown no-arrow">
             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
-              <img class="img-profile rounded-circle" src="../resources/img/undraw_profile.svg">
+              <span class="mr-2 d-none d-lg-inline text-gray-600 small">
+                <?= $sessName; ?>
+              </span>
+              <img class="img-profile rounded-circle" src="resources/img/undraw_profile.svg">
             </a>
             <!-- Dropdown - User Information -->
             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
