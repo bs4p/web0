@@ -4,7 +4,7 @@ require_once 'app/global.php';
 ?>
 
 <?php $title = 'Register'; ?>
-<?php require_once 'app/template/header.php'; ?>
+<?php require_once 'resources/template/header.php'; ?>
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-lg-6">
@@ -44,4 +44,4 @@ require_once 'app/global.php';
     </div>
   </div>
 </div>
-<?php require_once 'app/template/footer.php'; ?>
+<?php require_once 'resources/template/footer.php'; ?>
