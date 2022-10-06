@@ -8,7 +8,7 @@ class Database
   private $dbName = 'web0';
   private $port = 3306;
   private $dbOption = [
-    PDO::ATTR_PERSISTENT => true,
+    // PDO::ATTR_PERSISTENT => true,
     PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
   ];
 
