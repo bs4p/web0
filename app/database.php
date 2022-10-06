@@ -11,7 +11,7 @@ class Database
     PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
   ];
 
-  public PDO $dbh;
+  private PDO $dbh;
 
   private PDOStatement $stmt;
 
