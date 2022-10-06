@@ -25,19 +25,19 @@ class Database
     }
   }
 
-  public function query(string $query)
+  public function query($query): PDOStatement|false
   {
     $this->dbh->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
     return $this->dbh->query($query);
   }
 
-  public function prepare(string $query)
+  public function prepare($query): Database
   {
     $this->stmt = $this->dbh->prepare($query);
     return $this;
   }
 
-  public function bindValue(mixed $param, mixed $var, ?int $type = null)
+  public function bindValue(int|string $param, mixed $var, ?int $type = null): Database
   {
     if (is_null($type)) {
       switch (true) {
@@ -59,7 +59,7 @@ class Database
     return $this;
   }
 
-  public function execute(?array $params = null)
+  public function execute(?array $params = null): Database
   {
     if (is_null($params)) {
       $this->stmt->execute();
@@ -69,7 +69,7 @@ class Database
     return $this;
   }
 
-  public function fetch(?array $executeParams = null)
+  public function fetch(?array $executeParams = null): mixed
   {
     $this->execute($executeParams);
     $result = $this->stmt->fetch(PDO::FETCH_NUM);
@@ -77,7 +77,7 @@ class Database
     return ($result == false) ? false : $result[0];
   }
 
-  public function fetchAll(?array $executeParams = null)
+  public function fetchAll(?array $executeParams = null): array
   {
     $this->execute($executeParams);
     $result = $this->stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -85,12 +85,12 @@ class Database
     return $result;
   }
 
-  public function rowCount()
+  public function rowCount(): int
   {
     return $this->stmt->rowCount();
   }
 
-  public function quote(string $string)
+  public function quote(string $string): string|false
   {
     return $this->dbh->quote($string);
   }
