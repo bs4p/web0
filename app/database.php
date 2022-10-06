@@ -5,7 +5,8 @@ class Database
   private string $dbHost = '127.0.0.1';
   private string $dbUser = 'root';
   private string $dbPass = '';
-  private string $dbName = 'php_login_system';
+  private string $dbName = 'web0';
+  private int $port = 3306;
   private array $dbOption = [
     PDO::ATTR_PERSISTENT => true,
     PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
@@ -17,7 +18,7 @@ class Database
 
   public function __construct()
   {
-    $dsn = "mysql:dbname={$this->dbName};host={$this->dbHost}";
+    $dsn = "mysql:host={$this->dbHost};port={$this->port};dbname={$this->dbName};";
     try {
       $this->dbh = new PDO($dsn, $this->dbUser, $this->dbPass, $this->dbOption);
     } catch (PDOException $e) {
