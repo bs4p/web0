@@ -9,7 +9,7 @@ if (!isset($_POST['__register'])) {
 
 $db = new Database();
 
-$name = htmlspecialchars(strtolower($_POST["_name"]));
+$name = htmlspecialchars(ucwords($_POST["_name"]));
 $email = htmlspecialchars(strtolower($_POST["_email"]));
 $password = $_POST["_password"];
 $passwordRepeat = $_POST["_password_repeat"];
