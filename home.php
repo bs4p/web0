@@ -251,7 +251,7 @@ $db = new Database();
       <div class="modal-body">Select "Delete" below if you sure want to delete this data</div>
       <div class="modal-footer">
         <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-        <a id="btnDeleteDataModal" class="btn btn-danger">Delete</a>
+        <a href="" id="btnDeleteDataModal" class="btn btn-danger">Delete</a>
       </div>
     </div>
   </div>
