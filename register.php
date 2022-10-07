@@ -18,7 +18,7 @@ if (isset($_SESSION["login"])) {
             <div class="text-center">
               <h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
             </div>
-            <form class="user" method="post" action="api/registerApi.php">
+            <form class="user" method="post" action="/api/registerApi.php">
               <?= showFlash(); ?>
               <div class="form-group">
                 <input type="email" class="form-control form-control-user" id="email" name="_email" placeholder="Email Address">
