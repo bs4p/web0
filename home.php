@@ -146,6 +146,7 @@ $db = new Database();
               $no = 1;
               ?>
               <?php foreach ($users as $user) : ?>
+                <?php if ($user['id'] == $sessId) continue; ?>
                 <tr>
                   <td><?= $user['name']; ?></td>
                   <td><?= $user['email']; ?></td>
