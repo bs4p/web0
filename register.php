@@ -1,6 +1,10 @@
 <?php $title = 'Home';
 session_start();
 require_once 'app/global.php';
+
+if (isset($_SESSION["login"])) {
+  redirect("/home.php");
+}
 ?>
 
 <?php $title = 'Register'; ?>
