@@ -13,7 +13,9 @@ $id = $_GET["id"];
 
 $checkId = $db->query("SELECT id FROM users WHERE id = {$id}")->fetch();
 
-if ($checkId) {
+if (!$checkId) {
+  createFlash("warning", "Illegal action no data found");
+} else {
   $deleteData = $db->query("DELETE FROM users WHERE id = {$id}");
   createFlash("success", "A data was successfully deleted");
 }
